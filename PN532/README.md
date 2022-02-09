@@ -11,10 +11,6 @@ Colocar el sensor en el modo I2C, para esto debemos de mover el dipswitch. En es
 | Pin en el modulo NFC | Pin fisico raspberry |
 | -- | -- |
 | GND | 6 |
-| -- | -- |
 | VCC | 4 |
-| -- | -- |
 | SDA | 3 |
-| -- | -- |
 | SCL | 5 |
-| -- | -- |
