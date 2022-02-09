@@ -19,4 +19,4 @@ Nota: Esto podría cambiar dependiendo de tu modelo de Raspberry.
 
 #### Diagrama esquematico de conexiones 
 
-<img src = "https://github.com/ElierRosales/Capstone-project-Administrador-de-laboratorios/blob/1591fc57af5bbe840283c8702dcfac98775471e2/PN532/Imagenes%20PN532/DIP-SWITCH-I_PN532.jpg" width="500">
+<img src = "https://github.com/ElierRosales/Capstone-project-Administrador-de-laboratorios/blob/394ebabad124962520fa670e8486fcfafb82d717/PN532/Imagenes%20PN532/PN532-PI.png" width="500">
