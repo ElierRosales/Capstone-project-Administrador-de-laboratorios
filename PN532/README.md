@@ -42,7 +42,9 @@ Nota: Esto podría cambiar dependiendo de tu modelo de Raspberry.
 
   `pip3 install paho-mqtt` 
       
- en caso de que no lo permita, usamos `sudo` antes de la instrucción.
+  en caso de que no lo permita, usamos `sudo` antes de la instrucción.
+  
+* Ahora vamos a probar un código
  
  
 
