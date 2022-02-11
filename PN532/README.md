@@ -19,4 +19,26 @@ Nota: Esto podría cambiar dependiendo de tu modelo de Raspberry.
 
 #### Diagrama esquematico de conexiones 
 
-<img src = "https://github.com/ElierRosales/Capstone-project-Administrador-de-laboratorios/blob/394ebabad124962520fa670e8486fcfafb82d717/PN532/Imagenes%20PN532/PN532-PI.png" width="500">
+<img src =  width="500">
+
+### INSTALACIÓN DE BIBLIOTECAS Y MODULOS QUE SE UTILIZAN
+-Abrimos la terminal y revisamos si tenemos y que versión de Python tenemos instalado con :
+'python --version'
+ en caso de no tenerlo instalado, podemos instalarlo con:
+'sudo apt-get install python3'
+
+- Revisamos si tenemos las ultimas actualizaciones disponibles, para esto colocamos lo siguiente:
+'sudo apt update && sudo apt upgrade'
+
+- Instalamos el modulo PN532pi de Python que vamos a utilizar con la instrucción :
+'sudo pip3 install pn532pi'
+
+-Instalamos el modulo paho de Python que es el que nos permitirá realizar la conexión MQTT:
+'pip3 install paho-mqtt' en caso de que no lo permita usamos 'sudo' antes de la instrucción.
+
+
+
+
+
+
+
