@@ -45,6 +45,8 @@ Nota: Esto podría cambiar dependiendo de tu modelo de Raspberry.
   en caso de que no lo permita, usamos `sudo` antes de la instrucción.
   
 * Ahora vamos a probar un código
+
+https://github.com/ElierRosales/Capstone-project-Administrador-de-laboratorios/blob/a268ef78fc8f642d6fe8613c2504eddc2436d002/PN532/UIDporMQTT.py
  
  
 
