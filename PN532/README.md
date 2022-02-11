@@ -24,17 +24,18 @@ Nota: Esto podría cambiar dependiendo de tu modelo de Raspberry.
 ### INSTALACIÓN DE BIBLIOTECAS Y MODULOS QUE SE UTILIZAN
 * Abrimos la terminal y revisamos si tenemos y que versión de Python tenemos instalado con :
 
-
-`python --version`
+  `python --version`
 
  en caso de no tenerlo instalado, podemos instalarlo con:
  
-`sudo apt-get install python3`
+  `sudo apt-get install python3`
 
 * Revisamos si tenemos las ultimas actualizaciones disponibles, para esto colocamos lo siguiente:
-`sudo apt update && sudo apt upgrade`
+
+  `sudo apt update && sudo apt upgrade`
 
 * Instalamos el modulo PN532pi de Python que vamos a utilizar con la instrucción :
+
 `sudo pip3 install pn532pi`
 
 *Instalamos el modulo paho de Python que es el que nos permitirá realizar la conexión MQTT:
