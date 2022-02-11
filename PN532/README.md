@@ -26,7 +26,9 @@ Nota: Esto podría cambiar dependiendo de tu modelo de Raspberry.
 
 
 `python --version`
+
  en caso de no tenerlo instalado, podemos instalarlo con:
+ 
 `sudo apt-get install python3`
 
 * Revisamos si tenemos las ultimas actualizaciones disponibles, para esto colocamos lo siguiente:
