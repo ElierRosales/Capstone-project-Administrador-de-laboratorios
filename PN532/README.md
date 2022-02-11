@@ -38,11 +38,13 @@ Nota: Esto podría cambiar dependiendo de tu modelo de Raspberry.
 
   `sudo pip3 install pn532pi`
 
-*Instalamos el modulo paho de Python que es el que nos permitirá realizar la conexión MQTT:
+* Instalamos el modulo paho de Python que es el que nos permitirá realizar la conexión MQTT:
 
   `pip3 install paho-mqtt` 
       
  en caso de que no lo permita, usamos `sudo` antes de la instrucción.
+ 
+ 
 
 
 
