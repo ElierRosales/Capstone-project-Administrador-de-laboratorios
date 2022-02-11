@@ -23,6 +23,8 @@ Nota: Esto podría cambiar dependiendo de tu modelo de Raspberry.
 
 ### INSTALACIÓN DE BIBLIOTECAS Y MODULOS QUE SE UTILIZAN
 * Abrimos la terminal y revisamos si tenemos y que versión de Python tenemos instalado con :
+
+
 `python --version`
  en caso de no tenerlo instalado, podemos instalarlo con:
 `sudo apt-get install python3`
