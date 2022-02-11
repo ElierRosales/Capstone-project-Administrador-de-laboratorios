@@ -44,12 +44,15 @@ Nota: Esto podría cambiar dependiendo de tu modelo de Raspberry.
       
   en caso de que no lo permita, usamos `sudo` antes de la instrucción.
   
-* Ahora vamos a probar un código, escribimos los siguiente en la terminal:
+* Ahora vamos a probar un código, escribimos lo siguiente en la terminal:
+
+   `cd Documents` 
 
  `git clone https://github.com/ElierRosales/Capstone-project-Administrador-de-laboratorios.git`
  
-  entramos en la carpeta PN532, abrimos con Thony Python IDE y damos en el botón Run.
-  Ahora pasamos un tag NFC y este te imprimirá el UID de tu tag.
+  entramos en la carpeta PN532 la cual encontraremos dentro de nuestra carpeta Documents, abrimos el archivo UIDporMQTT.py
+  con Thony Python IDE y damos en el botón Run.
+  Ahora pasamos un tag NFC y en consola se imprimirá el UID de tu tag.
  
 
 
