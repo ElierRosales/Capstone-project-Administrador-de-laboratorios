@@ -63,4 +63,4 @@ Nota: Esto podría cambiar dependiendo de tu modelo de Raspberry.
   
   `sudo ./servoSuscriptor.py`
   
-  * y ejecutamos el programa que publica (aquí hay que cambiar manualmente el valor por "true" o "false"), para esto abrimos servoPub.py con Thony Python IDE, buscamos la sección de client.publish('isur/puerta', "true" y cambiamos por el usuario/tem y el valor "true" o "false" dependiendo que queremos que haga el servo.
+  * y ejecutamos el programa que publica (aquí hay que cambiar manualmente el valor por "true" o "false"), para esto abrimos servoPub.py con Thony Python IDE, buscamos la sección de client.publish('isur/puerta', "true" y cambiamos por el usuario/tem y el valor "true" o "false" dependiendo que queremos que haga el servo, damos click en el botón "run" y listo, veremos como el servo cambia de posición.
