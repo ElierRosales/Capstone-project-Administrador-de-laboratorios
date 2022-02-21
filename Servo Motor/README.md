@@ -24,10 +24,6 @@ abierto == false --> cerrado
 
 Nota: Esto podría cambiar dependiendo de tu modelo de Raspberry.
 
-#### Diagrama esquematico de conexiones 
-
-<img src =  width="500">
-
 ### INSTALACIÓN DE BIBLIOTECAS Y MODULOS QUE SE UTILIZAN
 * Abrimos la terminal y revisamos si tenemos y que versión de Python tenemos instalado con :
 
@@ -47,14 +43,24 @@ Nota: Esto podría cambiar dependiendo de tu modelo de Raspberry.
       
   en caso de que no lo permita, usamos `sudo` antes de la instrucción.
   
-* El servo recibe una instrucción por medio de MQTT la cual decidira la posición del mismo 
-  
-* Ahora vamos a probar un código, escribimos lo siguiente en la terminal:
+* Ahora necesitamos 2 codigos:
+  - 1 que es el que se suscribe a MQTT y recibe la instrucción 
+  - 2 el que publica y envía el mensaje por MQTT
+
+* Para obtenerlos, ponemos las siguientes instrucciones en la terminal:
 
    `cd Documents` 
 
  `git clone https://github.com/ElierRosales/Capstone-project-Administrador-de-laboratorios.git`
  
-  entramos en la carpeta PN532 la cual encontraremos dentro de nuestra carpeta Documents, abrimos el archivo UIDporMQTT.py
-  con Thony Python IDE y damos en el botón Run.
-  Ahora pasamos un tag NFC y en consola se imprimirá el UID de tu tag.
+ * ejecutamos el suscriptor
+
+  `cd Capstone-project-Administrador-de-laboratorios`
+  
+  `cd Servo Motor`
+  
+  `chmod 777 servoSuscriptor`
+  
+  `sudo ./servoSuscriptor.py`
+  
+  * y ejecutamos el programa que publica (aquí hay que cambiar manualmente el valor por "true" o "false"), para esto abrimos servoPub.py con Thony Python IDE, buscamos la sección de client.publish('isur/puerta', "true" y cambiamos por el usuario/tem y el valor "true" o "false" dependiendo que queremos que haga el servo.
