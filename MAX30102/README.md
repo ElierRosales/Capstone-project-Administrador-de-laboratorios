@@ -52,6 +52,16 @@ Arduino IDE está disponible para Windows/Linux y MacOS en el siguiente enlace:
 - En el buscador de librerias, buscar "MAX30105" e instalar la siguiente: ![sparkfun](imagenes/sparkfun.png)
 ## Instalar biblioteca para el manejo de funciones MQTT.
 - En el mismo administrador de bibliotecas, buscar e instalar la siguiente librería: ![pubsub](imagenes/pubsubclient.png)
+## Boton
+Para sincronizar la lectura de ambos sensores (MLX90614 y MAX30102), compartiran un push button, conectado a GPIO4 en el caso del ESP32CAM y tambien conectado a GPIO22 en la raspberry.
+
+Para agregar el boton, consideraremos el siguiente ejemplo:
+
+![boton](imagenes/boton_esp32.jpg)
+
+Donde vamos a omitir la parte del LED y nos centraremos exclusivamente en el boton, el cable azul tendria que ir al GPIO4 de nuestra ESP32 y sobre esa misma linea, iria otro cable al GPIO22 de nuestra raspberry pi.
+
+Todo esto con el fin de que al presionar el boton se mande una señal a ambos dispositivos disparando el modo lectura de ambos sensores.
 ## LED's
 El sistema implementa 3 leds ante la falta de una pantalla, con los cuales se realiza la comunicacion con el usuario.
 

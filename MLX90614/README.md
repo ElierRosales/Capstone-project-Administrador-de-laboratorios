@@ -48,6 +48,8 @@ Una vez completados estos pasos solo queda armar el circuito y probar el program
 Las conexiones sugeridas y el diagrama esquemático utilizado es el siguiente: 
 
 ![rasp-mlx90614](imagenes/diagrama.png)
+
+Ademas utilizar el mismo push button que se instalo en el [ESP32CAM+MAX30102]
 ## Comprobar que el sensor es detectado por la raspberry.
 si las conexiones y el soporte i2c fue habilitado correctamente, podemos comprobar si la dirección lógica del sensor es detectada por el i2c bus usando el siguiente comando:
 
@@ -75,4 +77,14 @@ Si no cuentas con PIP, puedes instalarlo desde la terminal con el siguiente coma
 
 ## Versiones de Python.
 Durante toda esta guia hemos usado el comando `python` seguido de muchas opciones, es importante saber que la raspberry maneja el comando `python` como Python 2.7, el cúal esta descontinuado pero muchos módulos aún funcionan con el, por lo cual si quieres que el programa corra sobre Python 3 tendrás que usar el comando `python3` y `pip3` respectivamente en vez de `python` y `pip`.
+## Modos
+Este sistema cuenta con 2 modos de operacion, standby y lectura, el modo standby esta en espera de que se presione el boton fisico por 3 segundos para pasar al modo lectura, despues de realizar las lecturas, el sistema vuelve automaticamente al modo standby.
+
+Para reconocer cada modo en la ausencia de una pantalla, se tiene la siguiente secuencia de LED's:
+- Standby
+  
+  ![standby_mlx](imagenes/standby_mlx.gif)
+- Lectura
+  
+  ![lectura_mlx](imagenes/standby_mlx_real.gif)
 

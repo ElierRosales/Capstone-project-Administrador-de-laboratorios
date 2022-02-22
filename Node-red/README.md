@@ -45,11 +45,11 @@ Dentro de este dashboard, tenemos 5 secciones divididas, las cuales explicare a 
 
   - MLX90614+RASPBERRYPI(STANDBY)
     
-    ![MLX_STANDBY](imagenes/standby_mlx_real.gif)
+    ![MLX_STANDBY](imagenes/standby_mlx.gif)
 
   - MLX90614+RASPBERRYPI(LECTURA)
   
-    ![MLX_LECTURA](imagenes/standby_mlx.gif)
+    ![MLX_LECTURA](imagenes/standby_mlx_real.gif)
   
   Por lo tanto, una secuencia estatica en los leds significa lectura, mientras que una secuencia dinamica significa standby. Los sensores estan programados para realizar una lectura y publicarla mediante MQTT.
 
