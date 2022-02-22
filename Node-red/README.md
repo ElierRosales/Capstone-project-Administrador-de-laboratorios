@@ -10,6 +10,30 @@
 - NPM
 - Conexion a internet/Red local
 - Broker MQTT(publico o privado)
+## Instalar Node-red en Raspberry Pi
+De acuerdo a la pagina oficial de Node-red, para instalar Node-red, crearon un script que instala Node.js,npm y Node-red simultaneamente, ejecutando el siguiente bash script:
+
+`bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered)`
+
+Este script deberia funcionar en cualquier distribucion basada en Debian, de cualquier manera, asegurate de tener instalado el siguiente paquete mediante el siguiente comando:
+
+`sudo apt install build-essential git curl`
+
+## Iniciar Node-red
+
+Para iniciar el servicio de Node-red, basta con escribir en la terminal el siguiente comando:
+
+`node-red`
+
+Esto iniciara un servicio web alojado localmente en el puerto 1880, asi que lo unico que necesitas hacer para comenzar a 'programar' en node red, es abrir un navegador y escribir en la barra de direcciones:
+
+`localhost:1880`
+
+La raspberry pi cuenta con recursos muy limitados, y utilizar directamente node-red podria no ser una experiencia fluida, por lo tanto, lo mejor es iniciar el servicio en la raspberry, y visitarlo desde un navegador alojado en tu computadora principal, para hacer esto, necesitamos conocer la ip de nuestra raspberry, e ingresarla de la siguiente manera:
+
+asumiendo que la ip local de nuestra raspberry es 192.169.1.29 debemos ingresar lo siguiente en la barra de direcciones:
+
+`192.169.1.29:1880`
 ## Modulos utilizados
 - node-red-dashboard
 - node-red
