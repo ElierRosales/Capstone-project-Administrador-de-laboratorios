@@ -49,7 +49,7 @@ Las conexiones sugeridas y el diagrama esquemático utilizado es el siguiente:
 
 ![rasp-mlx90614](imagenes/diagrama.png)
 
-Ademas utilizar el mismo push button que se instalo en el [ESP32CAM+MAX30102]
+Ademas utilizar el mismo push button que se instalo en el [ESP32CAM+MAX30102](https://github.com/ElierRosales/Capstone-project-Administrador-de-laboratorios/tree/main/MAX30102#boton)
 ## Comprobar que el sensor es detectado por la raspberry.
 si las conexiones y el soporte i2c fue habilitado correctamente, podemos comprobar si la dirección lógica del sensor es detectada por el i2c bus usando el siguiente comando:
 
