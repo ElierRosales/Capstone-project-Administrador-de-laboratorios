@@ -83,3 +83,8 @@ El sistema cuenta con 2 modos, un modo standby y un modo de lectura.
   
   ![lectura_max](imagenes/lectura_max.gif)
 ### Ahora solo queda programar el ESP32-CAM con el código de este repositorio.
+# Errores comunes
+## El sistema solo enciende el led de energia.
+Este error sucede la mayoria de veces a causa de un Brownout(Falta de voltaje) es decir que el microcontrolador no esta recibiendo el voltaje necesario, por lo tanto se reinicia indefinidamente.
+
+Para solucionarlo hay que revisar el cableado y la fuente de alimentacion, muchas veces un cable de mala calidad puede provocar que el dispositivo no reciba suficiente energia.
