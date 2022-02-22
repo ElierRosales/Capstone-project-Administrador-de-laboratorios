@@ -50,7 +50,9 @@ Donde la resistencia de 10K se conecta al Pin 2 del DHT11 hacia 3.3v.
 ## Instalando librerias en Arduino IDE.
 Para manipular el sensor DHT11 instalaremos la siguiente libreria de AdaFruit:
 
-- Seleccionamos 'tools' o 'Herramientas' dependiendo del idioma y posteriormente seleccionamos 'Manage libraries' o 'administrador de librerias' en español. ![tools](imagenes/manage_lib.png)
+- Seleccionamos 'tools' o 'Herramientas' dependiendo del idioma y posteriormente seleccionamos 'Manage libraries' o 'administrador de librerias' en español. 
+  
+  ![tools](imagenes/manage_lib.png)
 - Una vez dentro del administrador de librerias, buscaremos la palabra 'DHT' y en los resultados instalaremos la siguiente libreria. ![arduino_dht](imagenes/arduino_buscar.png)
 - Al intentar instalarla nos aparecera el siguiente aviso, preguntando si queremos instalar las dependencias de la propia libreria, o solamente la libreria, de cualquier manera seleccionaremos instalar las dependencias ya que sin ellas la libreria antes mencionada no funcionara, asi que seleccionamos 'install all'. 
   
