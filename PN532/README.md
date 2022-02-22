@@ -2,7 +2,7 @@
 ### Lector de sensor NFC (PN532) con raspberry
 ## INSTRUCCIONES 
 ### CONFIGURACIÓN SENSOR
-Colocar el sensor en el modo MSU, para esto debemos de mover el dipswitch. En este caso como es modo MSU, colocamos el 1 en ON y el 2 en OFF. (También nos podemos guiar viendo la tabla del sensor, esta se encuentra a un lado del dipswitch como se puee ver en la siguiente imagen) 
+Colocar el sensor en el modo MSU, para esto debemos de mover el dipswitch. En este caso como es modo MSU, colocamos el 1 en OFF y el 2 en OFF. (También nos podemos guiar viendo la tabla del sensor, esta se encuentra a un lado del dipswitch como se puee ver en la siguiente imagen) 
 
 <img src = "https://github.com/ElierRosales/Capstone-project-Administrador-de-laboratorios/blob/1591fc57af5bbe840283c8702dcfac98775471e2/PN532/Imagenes%20PN532/DIP-SWITCH-I_PN532.jpg" width="500">
 
