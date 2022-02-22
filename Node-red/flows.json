@@ -1,0 +1,1449 @@
+[
+    {
+        "id": "43d97d32682ec8d6",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "7bd8e5f4b9cf89c7",
+        "type": "mqtt in",
+        "z": "43d97d32682ec8d6",
+        "name": "temperatura",
+        "topic": "isur/temp",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "f0de1995277616c8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 80,
+        "wires": [
+            [
+                "3981e5e611260601",
+                "9846f0581858083d",
+                "8dca63be913f04e3"
+            ]
+        ]
+    },
+    {
+        "id": "8f293b58c5771ec5",
+        "type": "mqtt in",
+        "z": "43d97d32682ec8d6",
+        "name": "oxigeno",
+        "topic": "isur/oxigeno",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "f0de1995277616c8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 140,
+        "wires": [
+            [
+                "74816a4c1cbff5ac",
+                "06158c3acb377cc1",
+                "bbf8f77038ef22c8"
+            ]
+        ]
+    },
+    {
+        "id": "74816a4c1cbff5ac",
+        "type": "ui_text",
+        "z": "43d97d32682ec8d6",
+        "group": "74f876ad7860a6ce",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Oxigenacion",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 350,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "9e01e73598137c09",
+        "type": "mqtt in",
+        "z": "43d97d32682ec8d6",
+        "name": "",
+        "topic": "isur/pulso",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "f0de1995277616c8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 100,
+        "y": 280,
+        "wires": [
+            [
+                "7345e8202779e282",
+                "079883ecdd943b79",
+                "ea9246f4b46aee4b"
+            ]
+        ]
+    },
+    {
+        "id": "65f9b70df85f1ff8",
+        "type": "mqtt in",
+        "z": "43d97d32682ec8d6",
+        "name": "Temp Ambiente",
+        "topic": "isur/temperatura_salon",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "f0de1995277616c8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 340,
+        "wires": [
+            [
+                "f7d803e5b777ce11"
+            ]
+        ]
+    },
+    {
+        "id": "f7d803e5b777ce11",
+        "type": "ui_gauge",
+        "z": "43d97d32682ec8d6",
+        "name": "Ambiente",
+        "group": "09297ea9730f36a6",
+        "order": 1,
+        "width": 5,
+        "height": 3,
+        "gtype": "gage",
+        "title": "Temperatura Ambiente",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "40",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "20",
+        "seg2": "30",
+        "className": "",
+        "x": 360,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "f0cf5563db53c86c",
+        "type": "exec",
+        "z": "43d97d32682ec8d6",
+        "command": "python3 /home/pi/RASPBERRYPI-CODIGOIOT/PyMLX90614-0.0.3/mlx90614.py",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "mlx90614",
+        "x": 460,
+        "y": 460,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "7caa034a49faa628",
+        "type": "ui_button",
+        "z": "43d97d32682ec8d6",
+        "name": "Monitoreo",
+        "group": "bb21fdcd96e09c93",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Iniciar monitoreo.",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 240,
+        "y": 460,
+        "wires": [
+            [
+                "f0cf5563db53c86c"
+            ]
+        ]
+    },
+    {
+        "id": "3981e5e611260601",
+        "type": "ui_gauge",
+        "z": "43d97d32682ec8d6",
+        "name": "Corporal",
+        "group": "74f876ad7860a6ce",
+        "order": 3,
+        "width": 6,
+        "height": 3,
+        "gtype": "gage",
+        "title": "Temperatura corporal",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "42",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "36",
+        "seg2": "38",
+        "className": "",
+        "x": 520,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "467d246c3f24d21b",
+        "type": "mqtt in",
+        "z": "43d97d32682ec8d6",
+        "name": "",
+        "topic": "isur/uid",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "f0de1995277616c8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 70,
+        "y": 520,
+        "wires": [
+            [
+                "d1d6ce5e49c3d7f6",
+                "a160d5d997580a18"
+            ]
+        ]
+    },
+    {
+        "id": "f8597d449a3897cc",
+        "type": "ui_text",
+        "z": "43d97d32682ec8d6",
+        "group": "b4bde563647d3018",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Nombre",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 460,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "5ac4be9b513bf859",
+        "type": "mqtt in",
+        "z": "43d97d32682ec8d6",
+        "name": "isur/usuario/nombre",
+        "topic": "isur/usuario/nombre",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "f0de1995277616c8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 580,
+        "wires": [
+            [
+                "f8597d449a3897cc"
+            ]
+        ]
+    },
+    {
+        "id": "981f24d2f4a9d8e4",
+        "type": "mqtt in",
+        "z": "43d97d32682ec8d6",
+        "name": "isur/usuario/matricula",
+        "topic": "isur/usuario/matricula",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "f0de1995277616c8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 640,
+        "wires": [
+            [
+                "2c2d61faaba5f17f"
+            ]
+        ]
+    },
+    {
+        "id": "876923e57eb25aaa",
+        "type": "mqtt in",
+        "z": "43d97d32682ec8d6",
+        "name": "",
+        "topic": "isur/usuario/carrera",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "f0de1995277616c8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 700,
+        "wires": [
+            [
+                "f5bb69bb47bbddc6"
+            ]
+        ]
+    },
+    {
+        "id": "1fce39afb392b0b6",
+        "type": "mqtt in",
+        "z": "43d97d32682ec8d6",
+        "name": "",
+        "topic": "isur/estado",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "f0de1995277616c8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 780,
+        "wires": [
+            [
+                "950251360d683c14",
+                "731d6edef7957b71"
+            ]
+        ]
+    },
+    {
+        "id": "f52dbb6b6dd07805",
+        "type": "mqtt in",
+        "z": "43d97d32682ec8d6",
+        "name": "",
+        "topic": "isur/puerta",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "f0de1995277616c8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 100,
+        "y": 900,
+        "wires": [
+            [
+                "9d54ecc6fe5d2260",
+                "faaf816797493bd7"
+            ]
+        ]
+    },
+    {
+        "id": "8d3d72763908f12a",
+        "type": "ui_switch",
+        "z": "43d97d32682ec8d6",
+        "name": "",
+        "label": "Puerta",
+        "tooltip": "",
+        "group": "bb21fdcd96e09c93",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 630,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "950251360d683c14",
+        "type": "ui_text",
+        "z": "43d97d32682ec8d6",
+        "group": "b4bde563647d3018",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Estado del usuario",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 370,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "f5bb69bb47bbddc6",
+        "type": "ui_text",
+        "z": "43d97d32682ec8d6",
+        "group": "b4bde563647d3018",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Carrera",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 390,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "2c2d61faaba5f17f",
+        "type": "ui_text",
+        "z": "43d97d32682ec8d6",
+        "group": "b4bde563647d3018",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Matricula",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 420,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "a160d5d997580a18",
+        "type": "ui_text",
+        "z": "43d97d32682ec8d6",
+        "group": "b4bde563647d3018",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "UID",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 590,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "d1d6ce5e49c3d7f6",
+        "type": "trigger",
+        "z": "43d97d32682ec8d6",
+        "name": "",
+        "op1": "true",
+        "op2": "true",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "0",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 240,
+        "y": 400,
+        "wires": [
+            [
+                "5df1d6da36915ea6"
+            ]
+        ]
+    },
+    {
+        "id": "5df1d6da36915ea6",
+        "type": "ui_switch",
+        "z": "43d97d32682ec8d6",
+        "name": "",
+        "label": "Tarjeta",
+        "tooltip": "",
+        "group": "bb21fdcd96e09c93",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 450,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f398a28905529942",
+        "type": "ui_switch",
+        "z": "43d97d32682ec8d6",
+        "name": "",
+        "label": "Temperatura",
+        "tooltip": "",
+        "group": "d9873314e1d61643",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 650,
+        "y": 20,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9846f0581858083d",
+        "type": "trigger",
+        "z": "43d97d32682ec8d6",
+        "name": "",
+        "op1": "true",
+        "op2": "0",
+        "op1type": "bool",
+        "op2type": "str",
+        "duration": "0",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 420,
+        "y": 20,
+        "wires": [
+            [
+                "f398a28905529942"
+            ]
+        ]
+    },
+    {
+        "id": "06158c3acb377cc1",
+        "type": "trigger",
+        "z": "43d97d32682ec8d6",
+        "name": "",
+        "op1": "true",
+        "op2": "0",
+        "op1type": "bool",
+        "op2type": "str",
+        "duration": "0",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 360,
+        "y": 160,
+        "wires": [
+            [
+                "977915fd173980bd"
+            ]
+        ]
+    },
+    {
+        "id": "977915fd173980bd",
+        "type": "ui_switch",
+        "z": "43d97d32682ec8d6",
+        "name": "",
+        "label": "Oxigeno en sangre",
+        "tooltip": "",
+        "group": "d9873314e1d61643",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 640,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7345e8202779e282",
+        "type": "trigger",
+        "z": "43d97d32682ec8d6",
+        "name": "",
+        "op1": "true",
+        "op2": "0",
+        "op1type": "bool",
+        "op2type": "str",
+        "duration": "0",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 340,
+        "y": 300,
+        "wires": [
+            [
+                "e1626b421615b47f"
+            ]
+        ]
+    },
+    {
+        "id": "e1626b421615b47f",
+        "type": "ui_switch",
+        "z": "43d97d32682ec8d6",
+        "name": "",
+        "label": "Pulso cardiaco",
+        "tooltip": "",
+        "group": "d9873314e1d61643",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 600,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "079883ecdd943b79",
+        "type": "ui_text",
+        "z": "43d97d32682ec8d6",
+        "group": "74f876ad7860a6ce",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Pulso cardiaco",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 340,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "8dca63be913f04e3",
+        "type": "switch",
+        "z": "43d97d32682ec8d6",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "37",
+                "vt": "num"
+            },
+            {
+                "t": "lt",
+                "v": "37",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 490,
+        "y": 60,
+        "wires": [
+            [
+                "2bb3a6a8ae4e14a2"
+            ],
+            [
+                "b7ceedf0d5f7c56b"
+            ]
+        ]
+    },
+    {
+        "id": "e55b0732936264b7",
+        "type": "mqtt out",
+        "z": "43d97d32682ec8d6",
+        "name": "",
+        "topic": "isur/estado",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f0de1995277616c8",
+        "x": 1210,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "2bb3a6a8ae4e14a2",
+        "type": "change",
+        "z": "43d97d32682ec8d6",
+        "name": "enfermo",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Enfermo",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 960,
+        "y": 160,
+        "wires": [
+            [
+                "e55b0732936264b7"
+            ]
+        ]
+    },
+    {
+        "id": "ea9246f4b46aee4b",
+        "type": "switch",
+        "z": "43d97d32682ec8d6",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "100",
+                "vt": "num"
+            },
+            {
+                "t": "lte",
+                "v": "100",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 590,
+        "y": 280,
+        "wires": [
+            [
+                "2bb3a6a8ae4e14a2"
+            ],
+            [
+                "b7ceedf0d5f7c56b"
+            ]
+        ]
+    },
+    {
+        "id": "bbf8f77038ef22c8",
+        "type": "switch",
+        "z": "43d97d32682ec8d6",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "90",
+                "vt": "num"
+            },
+            {
+                "t": "gt",
+                "v": "90",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 350,
+        "y": 200,
+        "wires": [
+            [
+                "2bb3a6a8ae4e14a2"
+            ],
+            [
+                "b7ceedf0d5f7c56b"
+            ]
+        ]
+    },
+    {
+        "id": "731d6edef7957b71",
+        "type": "switch",
+        "z": "43d97d32682ec8d6",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Enfermo",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Sano",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 290,
+        "y": 820,
+        "wires": [
+            [
+                "e623d4d8e909e143"
+            ],
+            [
+                "e5d99a330ebf8dde"
+            ]
+        ]
+    },
+    {
+        "id": "e5d99a330ebf8dde",
+        "type": "change",
+        "z": "43d97d32682ec8d6",
+        "name": "Sano",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 840,
+        "wires": [
+            [
+                "18c2dcc52e4e2454"
+            ]
+        ]
+    },
+    {
+        "id": "18c2dcc52e4e2454",
+        "type": "mqtt out",
+        "z": "43d97d32682ec8d6",
+        "name": "abrir",
+        "topic": "isur/puerta",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f0de1995277616c8",
+        "x": 750,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "9d54ecc6fe5d2260",
+        "type": "debug",
+        "z": "43d97d32682ec8d6",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 280,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "b7ceedf0d5f7c56b",
+        "type": "change",
+        "z": "43d97d32682ec8d6",
+        "name": "sano",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Sano",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 950,
+        "y": 200,
+        "wires": [
+            [
+                "e55b0732936264b7"
+            ]
+        ]
+    },
+    {
+        "id": "e623d4d8e909e143",
+        "type": "change",
+        "z": "43d97d32682ec8d6",
+        "name": "Enfermo",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 800,
+        "wires": [
+            [
+                "18c2dcc52e4e2454"
+            ]
+        ]
+    },
+    {
+        "id": "faaf816797493bd7",
+        "type": "switch",
+        "z": "43d97d32682ec8d6",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "true",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "false",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 260,
+        "y": 900,
+        "wires": [
+            [
+                "0fc559eabb6eddf9"
+            ],
+            [
+                "9dd2375e7f2a9618"
+            ]
+        ]
+    },
+    {
+        "id": "0fc559eabb6eddf9",
+        "type": "change",
+        "z": "43d97d32682ec8d6",
+        "name": "Abrir",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 450,
+        "y": 940,
+        "wires": [
+            [
+                "8d3d72763908f12a"
+            ]
+        ]
+    },
+    {
+        "id": "9dd2375e7f2a9618",
+        "type": "change",
+        "z": "43d97d32682ec8d6",
+        "name": "cerrar",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 450,
+        "y": 900,
+        "wires": [
+            [
+                "8d3d72763908f12a"
+            ]
+        ]
+    },
+    {
+        "id": "2fa8af79c6879149",
+        "type": "mqtt in",
+        "z": "43d97d32682ec8d6",
+        "name": "",
+        "topic": "isur/humedad",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "f0de1995277616c8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 1040,
+        "wires": [
+            [
+                "3c921acc96e87efa"
+            ]
+        ]
+    },
+    {
+        "id": "3c921acc96e87efa",
+        "type": "ui_gauge",
+        "z": "43d97d32682ec8d6",
+        "name": "",
+        "group": "09297ea9730f36a6",
+        "order": 5,
+        "width": 5,
+        "height": 3,
+        "gtype": "gage",
+        "title": "Humedad",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "40",
+        "seg2": "80",
+        "className": "",
+        "x": 330,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "844f769db521d280",
+        "type": "mqtt out",
+        "z": "43d97d32682ec8d6",
+        "name": "",
+        "topic": "isur/puerta",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f0de1995277616c8",
+        "x": 620,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "00384d6419662701",
+        "type": "ui_switch",
+        "z": "43d97d32682ec8d6",
+        "name": "",
+        "label": "Apertura/Clausura manual",
+        "tooltip": "",
+        "group": "bb21fdcd96e09c93",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 310,
+        "y": 1080,
+        "wires": [
+            [
+                "844f769db521d280"
+            ]
+        ]
+    },
+    {
+        "id": "b61c3a903c2ca7bb",
+        "type": "mqtt in",
+        "z": "43d97d32682ec8d6",
+        "name": "",
+        "topic": "isur/ultima_entrada",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "f0de1995277616c8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 1280,
+        "wires": [
+            [
+                "548ed3df86ed4e47",
+                "c47799459c20319c"
+            ]
+        ]
+    },
+    {
+        "id": "548ed3df86ed4e47",
+        "type": "ui_text",
+        "z": "43d97d32682ec8d6",
+        "group": "b4bde563647d3018",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Ultima entrada registrada",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 380,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "bd7c16ddfd090404",
+        "type": "mqtt in",
+        "z": "43d97d32682ec8d6",
+        "name": "",
+        "topic": "isur/ultima_salida",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "f0de1995277616c8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 1340,
+        "wires": [
+            [
+                "7ee58748a70570c3",
+                "c47799459c20319c"
+            ]
+        ]
+    },
+    {
+        "id": "7ee58748a70570c3",
+        "type": "ui_text",
+        "z": "43d97d32682ec8d6",
+        "group": "b4bde563647d3018",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Ultima salida registrada",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 380,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "c47799459c20319c",
+        "type": "debug",
+        "z": "43d97d32682ec8d6",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "3d38033a8349b6f3",
+        "type": "ui_text",
+        "z": "43d97d32682ec8d6",
+        "group": "bb21fdcd96e09c93",
+        "order": 2,
+        "width": "4",
+        "height": "2",
+        "name": "Lectura",
+        "label": "Informacion",
+        "format": "Presione el boton fisico durante 3 segundos, despues de iniciar monitoreo.",
+        "layout": "col-center",
+        "className": "",
+        "x": 650,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "ec4e1837fb1a3c60",
+        "type": "ui_spacer",
+        "z": "43d97d32682ec8d6",
+        "name": "spacer",
+        "group": "09297ea9730f36a6",
+        "order": 2,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "b56d4159134459fd",
+        "type": "ui_spacer",
+        "z": "43d97d32682ec8d6",
+        "name": "spacer",
+        "group": "09297ea9730f36a6",
+        "order": 3,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "415d2d09ed0dae53",
+        "type": "ui_spacer",
+        "z": "43d97d32682ec8d6",
+        "name": "spacer",
+        "group": "09297ea9730f36a6",
+        "order": 4,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "2f366e582e4f1e2e",
+        "type": "ui_spacer",
+        "z": "43d97d32682ec8d6",
+        "name": "spacer",
+        "group": "09297ea9730f36a6",
+        "order": 6,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "40d6337eeb411d45",
+        "type": "ui_spacer",
+        "z": "43d97d32682ec8d6",
+        "name": "spacer",
+        "group": "09297ea9730f36a6",
+        "order": 7,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "83d3ad6b88077d76",
+        "type": "ui_spacer",
+        "z": "43d97d32682ec8d6",
+        "name": "spacer",
+        "group": "09297ea9730f36a6",
+        "order": 8,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "f0de1995277616c8",
+        "type": "mqtt-broker",
+        "name": "broker isur",
+        "broker": "192.168.1.78",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "74f876ad7860a6ce",
+        "type": "ui_group",
+        "name": "Signos vitales",
+        "tab": "030f73c40792556d",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "09297ea9730f36a6",
+        "type": "ui_group",
+        "name": "Salon",
+        "tab": "030f73c40792556d",
+        "order": 1,
+        "disp": true,
+        "width": 7,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "bb21fdcd96e09c93",
+        "type": "ui_group",
+        "name": "Control",
+        "tab": "030f73c40792556d",
+        "order": 2,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "b4bde563647d3018",
+        "type": "ui_group",
+        "name": "Usuario",
+        "tab": "030f73c40792556d",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d9873314e1d61643",
+        "type": "ui_group",
+        "name": "Lectura de sintomas",
+        "tab": "030f73c40792556d",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "030f73c40792556d",
+        "type": "ui_tab",
+        "name": "Centro de control",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
