@@ -25,18 +25,34 @@ Para iniciar el servicio de Node-red, basta con escribir en la terminal el sigui
 
 `node-red`
 
+![iniciando_nodered](imagenes/iniciando-node-red.png)
 Esto iniciara un servicio web alojado localmente en el puerto 1880, asi que lo unico que necesitas hacer para comenzar a 'programar' en node red, es abrir un navegador y escribir en la barra de direcciones:
 
 `localhost:1880`
 
 La raspberry pi cuenta con recursos muy limitados, y utilizar directamente node-red podria no ser una experiencia fluida, por lo tanto, lo mejor es iniciar el servicio en la raspberry, y visitarlo desde un navegador alojado en tu computadora principal, para hacer esto, necesitamos conocer la ip de nuestra raspberry, e ingresarla de la siguiente manera:
 
-asumiendo que la ip local de nuestra raspberry es 192.169.1.29 debemos ingresar lo siguiente en la barra de direcciones:
+Asumiendo que la ip local de nuestra raspberry es 192.169.1.29 debemos ingresar lo siguiente en la barra de direcciones:
 
 `192.169.1.29:1880`
 ## Modulos utilizados
 - node-red-dashboard
 - node-red
+## Instalando Modulos en Node-red.
+Para instalar nuevos Modulos en nuestro Node-red, seguiremos los siguientes pasos:
+
+- Dirigete al boton en la esquina superior derecha y selecciona 'Manage Palette'
+  
+  ![manage_pallete](imagenes/manage.png)
+- Después se abrirá un menú, nos dirigimos a "Install" y escribimos 'Dashboard'. Seleccionamos 'node-red-dashboard' y presionamos el botón de instalar como se ve a continuación:
+  
+  ![nodo_dash](imagenes/nodo_dashboard.png)
+- Ahora nos pedirá una confirmación de si queremos instalar el módulo, seleccionaremos 'Install' y esperaremos a que se lleve a cabo la instalación.
+  
+  ![confirmacion](imagenes/confirmacion.png)
+- Finalmente nos aparecerá el siguiente pop-up confirmando los 'nodos' que fueron agregados.
+  
+  ![listo](imagenes/listo.png)
 ## Dependencias
 Este flow de Node-red depende de los modulos antes mencionados, ademas de los siguientes programas:
 
