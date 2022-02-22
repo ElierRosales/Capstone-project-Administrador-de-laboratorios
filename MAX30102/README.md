@@ -38,7 +38,9 @@ Arduino IDE está disponible para Windows/Linux y MacOS en el siguiente enlace:
 - https://www.arduino.cc/en/software
 
 ## Instalación del soporte para ESP32CAM en Arduino IDE. ##
-- Abrir el Arduino IDE, hacer click en File > Preferences ![preferencias](imagenes/arduino-ide-open-preferences.png)
+- Abrir el Arduino IDE, hacer click en File > Preferences 
+  
+  ![preferencias](imagenes/arduino-ide-open-preferences.png)
 - Ingresa la siguiente URL `https://dl.espressif.com/dl/package_esp32_index.json` en el campo llamado "Aditional Board Manager URLs mostrado abajo. Despúes presiona OK.![CAMPO_TEXTO](imagenes/board.png)
 - Abrir el administrador de tarjetas o Board Manager. ![BOARD_MANAGER](imagenes/a2boardmanager.png)
 - Dentro del board manager buscar 'ESP32' y presionar "Install" en la opción "ESP32 by Espresif Systems".![INSTALAR](imagenes/install.png)
