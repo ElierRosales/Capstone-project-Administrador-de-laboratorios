@@ -114,3 +114,7 @@ También podemos notar el campo de 'Estado del Usuario', el cual no se recibe de
 En caso de que el estado del usuario sea 'Sano', este envía una señal **True** mediante MQTT a la puerta (en este caso, un servomotor) para que se abra, por otra parte, si el estado del usuario es 'Enfermo' enviará una señal **False**, lo cúal no abrirá la puerta, y la cerrará en dado caso de que este abierta.
 
 ![motor_gif](imagenes/motorGIF.gif)
+
+# Video de Funcionamiento
+
+[![funcionamiento](https://www.img.youtube.com/vi/xvRPnctXTBA/2.jpg)](https://www.youtube.com/watch?v=xvRPnctXTBA)
