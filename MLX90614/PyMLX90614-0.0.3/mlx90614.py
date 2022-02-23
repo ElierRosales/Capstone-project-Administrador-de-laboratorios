@@ -87,9 +87,11 @@ def standby(LED_ENCENDIDO,LED_MQTT,LED_STANDBY):
         time.sleep(1)
 def parpadeo(LED):
     gpio.output(LED,True)
+    time.sleep(0.3)
     gpio.output(LED,False)
-    gpio.output(LED,False)
-    time.sleep(1)
+    time.sleep(0.3)
+    gpio.output(LED,True)
+    time.sleep(0.4)
 def mostrarHora():
     hora = dt.datetime.now().hour
     minutos = dt.datetime.now().minute
@@ -110,7 +112,9 @@ try:
     while(hayInternet()==False):
         print("No se encuentra una conexion a Internet.")
         gpio.output(LED_ENCENDIDO,True)
+        time.sleep(0.5)
         gpio.output(LED_ENCENDIDO,False)
+        time.sleep(0.5)
         print("Reintentando en 5 segundos...")
         time.sleep(5)
     print("Conectado a Internet.")
