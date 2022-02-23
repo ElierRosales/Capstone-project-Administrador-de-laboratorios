@@ -36,9 +36,15 @@ En este repositorio encontraras los recursos necesarios para la creación de un 
 ## Modo de uso.
 Una vez programado todos los sensores y dispositivos, tenemos que registrar alguna de las tarjetas en la base de datos manualmente, visitar: [registrarBaseDatos.py](https://github.com/ElierRosales/Capstone-project-Administrador-de-laboratorios/tree/main/MongoDB#descripcion-de-los-programas-en-este-repositorio)
 
+Para esto necesitamos correr el programa de registro y pasar la tarjeta por el lector
+
+![nfc_registro](imagenes/nfcGIF.gif)
+
 ![registrarBaseDatos](MongoDB/imagenes/registrarBaseDatos.png)
 
 Hecho esto, el usuario debe pasar su tarjeta por el sensor NFC [PN532](https://github.com/ElierRosales/Capstone-project-Administrador-de-laboratorios/tree/main/PN532), el cual leera el UID(ID Único) de la tarjeta en cuestión, y lo enviará mediante MQTT a el tema 'isur/uid' del broker utilizado.
+
+![nfc_gif](imagenes/nfcGIF.gif)
 
 El programa [buscarUID.py](https://github.com/ElierRosales/Capstone-project-Administrador-de-laboratorios/tree/main/MongoDB#descripcion-de-los-programas-en-este-repositorio) recibirá el UID enviado anteriormente, y buscará en la base de datos el usuario al que le pertenece la tarjeta, una vez encontrado mostrará los datos en la pantalla de la terminal, además de enviar los datos del usuario mediante MQTT para que posteriormente sean mostrados en el dashboard.
 
@@ -106,3 +112,5 @@ La sección de 'usuario' esta dedicada a mostrar la información extraida de la 
 También podemos notar el campo de 'Estado del Usuario', el cual no se recibe desde la base de datos, tampoco mediante MQTT, este campo de texto oscila entre 'Sano' y 'Enfermo' dependiendo de los sintomas recibidos en la sección de 'Signos vitales', siendo Node-red mismo quien hace las comparaciones para decidir si el usuario esta enfermo o sano.
 
 En caso de que el estado del usuario sea 'Sano', este envía una señal **True** mediante MQTT a la puerta (en este caso, un servomotor) para que se abra, por otra parte, si el estado del usuario es 'Enfermo' enviará una señal **False**, lo cúal no abrirá la puerta, y la cerrará en dado caso de que este abierta.
+
+![motor_gif](imagenes/motorGIF.gif)
