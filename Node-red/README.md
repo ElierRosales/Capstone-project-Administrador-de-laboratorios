@@ -62,6 +62,23 @@ Este flow de Node-red depende de los modulos antes mencionados, ademas de los si
 - buscarUID.py para administrar los datos en MongoDB, disponible en el siguiente enlace: [MongoDB](https://github.com/ElierRosales/Capstone-project-Administrador-de-laboratorios/tree/main/MongoDB)
 - Lector NFC PN532 para el manejo de tarjetas, disponible en el siguiente enlace: [PN532](https://github.com/ElierRosales/Capstone-project-Administrador-de-laboratorios/tree/main/PN532)
 - Servomotor para la simulación de una puerta, disponible en el siguiente enlace: [Servomotor](https://github.com/ElierRosales/Capstone-project-Administrador-de-laboratorios/tree/main/Servo%20Motor)
+## Importar el flow a Node-red.
+Para importar el flow.json de este repositorio a node-red seguiremos los siguientes pasos:
+- Nos dirigimos al botón ubicado en la esquina superior derecha, y seleccionamos la opción de 'import'.
+  
+  ![import](imagenes/import.png)
+- Posteriormente, se nos abrirá un menú donde podemos ingresar el JSON de manera manual o seleccionar un archivo desde nuestra computadora, haremos esto último presionando 'select a file to import'.
+  
+  ![menu_nodos](imagenes/menu_nodos.png)
+- Ahora simplemente seleccionaremos el archivo que queremos cargar a node-red.
+  
+  ![archivo](imagenes/seleccionar_archivo.png)
+- Posteriormente se nos mostrará el mismo menú de hace un rato pero con el JSON cargado y solo queda presionar 'import'
+  
+  ![casi](imagenes/casijson.png)
+- Listo, ahora tenemos el archivo cargado en Node-red.
+  
+  ![listo_nodo](imagenes/nodos_listos.png)
 ## Modo de uso
 Una vez cargado el json con la informacion de los nodos, y con las dependencias satisfechas, obtendremos un dashboard como el siguiente:
 
