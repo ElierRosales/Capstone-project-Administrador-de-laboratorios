@@ -92,6 +92,7 @@ def parpadeo(LED):
     time.sleep(0.3)
     gpio.output(LED,True)
     time.sleep(0.4)
+    gpio.output(LED,False)
 def mostrarHora():
     hora = dt.datetime.now().hour
     minutos = dt.datetime.now().minute
