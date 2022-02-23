@@ -1,4 +1,5 @@
 # Capstone-project 
+![sic](imagenes/sic.png)
 ## Administrador de Laboratorios.
 ## Descripción.
 En este repositorio encontraras los recursos necesarios para la creación de un sistema de administración de acceso y monitoreo de laboratorios en el cual se usarán un conjunto de sensores los cuales serán leídos mediante un arreglo de ESP32-CAM y Raspberrypi 3, donde dependiendo del número de laboratorios/salones se determinará la cantidad de microcontroladores/microcomputadoras.
@@ -117,4 +118,4 @@ En caso de que el estado del usuario sea 'Sano', este envía una señal **True**
 
 # Video de Funcionamiento
 
-[![funcionamiento](https://www.img.youtube.com/vi/xvRPnctXTBA/2.jpg)](https://www.youtube.com/watch?v=xvRPnctXTBA)
+[![funcionamiento](imagenes/logo.png)](https://www.youtube.com/watch?v=xvRPnctXTBA)
