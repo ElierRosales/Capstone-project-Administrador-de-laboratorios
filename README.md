@@ -42,7 +42,7 @@ Para esto necesitamos correr el programa de registro y pasar la tarjeta por el l
 
 ![registrarBaseDatos](MongoDB/imagenes/registrarBaseDatos.png)
 
-Hecho esto, el usuario debe pasar su tarjeta por el sensor NFC [PN532](https://github.com/ElierRosales/Capstone-project-Administrador-de-laboratorios/tree/main/PN532), el cual leera el UID(ID Único) de la tarjeta en cuestión, y lo enviará mediante MQTT a el tema 'isur/uid' del broker utilizado.
+Hecho esto, debemos correr el programa de buscarUID.py, el usuario debe pasar su tarjeta por el sensor NFC [PN532](https://github.com/ElierRosales/Capstone-project-Administrador-de-laboratorios/tree/main/PN532), el cual leera el UID(ID Único) de la tarjeta en cuestión, y lo enviará mediante MQTT a el tema 'isur/uid' del broker utilizado.
 
 ![nfc_gif](imagenes/nfcGIF.gif)
 
