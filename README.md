@@ -37,6 +37,7 @@ En este repositorio encontraras los recursos necesarios para la creación de un 
 Una vez programado todos los sensores y dispositivos, tenemos que registrar alguna de las tarjetas en la base de datos manualmente, visitar: [registrarBaseDatos.py](https://github.com/ElierRosales/Capstone-project-Administrador-de-laboratorios/tree/main/MongoDB#descripcion-de-los-programas-en-este-repositorio)
 
 ![registrarBaseDatos](MongoDB/imagenes/registrarBaseDatos.png)
+
 Hecho esto, el usuario debe pasar su tarjeta por el sensor NFC [PN532](https://github.com/ElierRosales/Capstone-project-Administrador-de-laboratorios/tree/main/PN532), el cual leera el UID(ID Único) de la tarjeta en cuestión, y lo enviará mediante MQTT a el tema 'isur/uid' del broker utilizado.
 
 El programa [buscarUID.py](https://github.com/ElierRosales/Capstone-project-Administrador-de-laboratorios/tree/main/MongoDB#descripcion-de-los-programas-en-este-repositorio) recibirá el UID enviado anteriormente, y buscará en la base de datos el usuario al que le pertenece la tarjeta, una vez encontrado mostrará los datos en la pantalla de la terminal, además de enviar los datos del usuario mediante MQTT para que posteriormente sean mostrados en el dashboard.
