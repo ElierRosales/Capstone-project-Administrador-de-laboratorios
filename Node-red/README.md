@@ -60,6 +60,8 @@ Este flow de Node-red depende de los modulos antes mencionados, ademas de los si
 - Lector de sintomas covid con el MAX30102, disponible en el siguiente enlace: [MAX30102](https://github.com/ElierRosales/Capstone-project-Administrador-de-laboratorios/tree/main/MAX30102)
 - Lector de temperatura y humedad con el DHT11, disponible en el siguiente enlace: [DHT11](https://github.com/ElierRosales/Capstone-project-Administrador-de-laboratorios/tree/main/DHT11)
 - buscarUID.py para administrar los datos en MongoDB, disponible en el siguiente enlace: [MongoDB](https://github.com/ElierRosales/Capstone-project-Administrador-de-laboratorios/tree/main/MongoDB)
+- Lector NFC PN532 para el manejo de tarjetas, disponible en el siguiente enlace: [PN532](https://github.com/ElierRosales/Capstone-project-Administrador-de-laboratorios/tree/main/PN532)
+- Servomotor para la simulación de una puerta, disponible en el siguiente enlace: [Servomotor](https://github.com/ElierRosales/Capstone-project-Administrador-de-laboratorios/tree/main/Servo%20Motor)
 ## Modo de uso
 Una vez cargado el json con la informacion de los nodos, y con las dependencias satisfechas, obtendremos un dashboard como el siguiente:
 
