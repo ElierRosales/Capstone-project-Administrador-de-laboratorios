@@ -50,6 +50,24 @@ Las conexiones sugeridas y el diagrama esquemático utilizado es el siguiente:
 ![rasp-mlx90614](imagenes/diagrama.png)
 
 Ademas utilizar el mismo push button que se instalo en el [ESP32CAM+MAX30102](https://github.com/ElierRosales/Capstone-project-Administrador-de-laboratorios/tree/main/MAX30102#boton)
+
+## Conexiones
+|MLX90614|RaspberryPi 3 Model B+|
+|--------|----------------------|
+|VIN|3.3v|
+|GND|GND|
+|SDA|GPIO2|
+|SCL|GPIO3
+## LED's
+|LED|RaspberryPi 3 Model B+|Función|
+|---|----------------------|-------|
+|Rojo|PIN12(GPIO18)| Led de Encendido|
+|Verde|PIN16(GPIO23)| Led MQTT|
+|Azul|PIN18(GPIO24)| Led Lectura|
+
+El led MQTT parpadeará cada que publique un dato por MQTT, mientras que el LED Azul parpadeará cada que se realice una lectura.
+
+El led de encendido debera permanecer encendido todo el tiempo a menos que no se encuentre una conexión a internet, sea ese el caso, parpadeará
 ## Comprobar que el sensor es detectado por la raspberry.
 si las conexiones y el soporte i2c fue habilitado correctamente, podemos comprobar si la dirección lógica del sensor es detectada por el i2c bus usando el siguiente comando:
 

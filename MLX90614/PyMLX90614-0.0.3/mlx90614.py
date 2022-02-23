@@ -1,3 +1,9 @@
+"""
+Autor: Jorge Isur Balderas Ramírez
+Fecha: 20-01-22
+Descripcion: Programa para leer la temperatura corporal y del salón.
+"""
+
 #declaracion de modulos
 from smbus2 import SMBus #administrar el bus de datos
 import paho.mqtt.client as mqtt #manejo de conexiones mqtt
