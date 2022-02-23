@@ -74,8 +74,12 @@ Los programas principales utilizados en el proyecto capstone son:
 - buscarUID.py
   
   Este script lee el mensaje recibido mediante mqtt en el tema "isur/uid" para buscarlo en la base de datos, imprimir y enviar los datos del usuario al que pertenece tal UID y ademas registrar la hora de salida/entrada.
+
+  ![buscarUID](imagenes/buscarUID.png)
 - RegistroBaseDatos.py
   
   Este script requiere de intervencion manual, ya que al igual que el script mencionado anteriormente, lee el uid recibido en el tema ya antes mencionado, una vez leido nos pedira los datos del usuario para registrarlos en la base de datos.
+
+  ![registroBaseDatos](imagenes/registrarBaseDatos.png)
 
 
