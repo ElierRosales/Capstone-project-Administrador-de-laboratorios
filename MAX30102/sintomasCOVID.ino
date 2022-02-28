@@ -83,12 +83,11 @@ void setup()
  
   while (WiFi.status() != WL_CONNECTED) { // Este bucle espera a que se realice la conexión
     digitalWrite(readLED, HIGH);
-    digitalWrite(LED_CONEXION_WIFI, HIGH);
     delay(500); //dado que es de suma importancia esperar a la conexión, debe usarse espera bloqueante
     digitalWrite(readLED, LOW);
-    digitalWrite(LED_CONEXION_WIFI,LOW);
+    conectando(LED_CONEXION_WIFI);
     Serial.print(".");  // Indicador de progreso
-    delay (5);
+    delay (2);
   }
   
   // Cuando se haya logrado la conexión, el programa avanzará, por lo tanto, puede informarse lo siguiente
@@ -255,25 +254,7 @@ void loop()
   else{
     Serial.println("MODO STANDBY");
     Serial.println("Presione el boton por 3 segundos para tomar las medidas");
-    digitalWrite(LED_OK,HIGH);
-    digitalWrite(LED_CONEXION_WIFI,LOW);
-    digitalWrite(LED_MQTT,LOW);
-    delay(1000);
-    digitalWrite(LED_OK,HIGH);
-    digitalWrite(LED_CONEXION_WIFI,HIGH);
-    digitalWrite(LED_MQTT,LOW);
-    delay(1000);
-    digitalWrite(LED_OK,HIGH);
-    digitalWrite(LED_CONEXION_WIFI,HIGH);
-    digitalWrite(LED_MQTT,HIGH);
-    delay(1000);
-    digitalWrite(LED_OK,LOW);
-    digitalWrite(LED_CONEXION_WIFI,LOW);
-    digitalWrite(LED_MQTT,HIGH);
-    delay(1000);
-    digitalWrite(LED_OK,LOW);
-    digitalWrite(LED_CONEXION_WIFI,HIGH);
-    digitalWrite(LED_MQTT,HIGH);
+    standby(LED_OK,LED_CONEXION_WIFI,LED_MQTT);
   }
 }
 // Función para reconectarse
@@ -291,27 +272,38 @@ void reconnect() {
       Serial.print("Conexion fallida, Error rc=");
       Serial.print(client.state()); // Muestra el codigo de error
       Serial.println(" Volviendo a intentar en 5 segundos");
-      digitalWrite(LED_MQTT,LOW);
-      delay(500);
-      digitalWrite(LED_MQTT,HIGH);
-      delay(500);
-      digitalWrite(LED_MQTT,LOW);
-      delay(500);
-      digitalWrite(LED_MQTT,HIGH);
-      delay(500);
-      digitalWrite(LED_MQTT,LOW);
-      delay(500);
-      digitalWrite(LED_MQTT,HIGH);
-      delay(500);
-      digitalWrite(LED_MQTT,LOW);
-      delay(500);
-      digitalWrite(LED_MQTT,HIGH);
-      delay(500);
-      digitalWrite(LED_MQTT,LOW);
-      delay(500);
-      digitalWrite(LED_MQTT,HIGH);
-      delay(500);
+      conectando(LED_MQTT);
       Serial.println (client.connected ()); // Muestra estatus de conexión
     }// fin del else
   }// fin del bucle while (!client.connected())
 }// fin de void reconnect()
+void conectando(LED){
+  digitalWrite(LED,HIGH);
+  delay(500);
+  digitalWrite(LED,LOW);
+  delay(500);
+  digitalWrite(LED,HIGH);
+  delay(500);
+  digitalWrite(LED,LOW);
+  delay(500);
+  digitalWrite(LED,HIGH);
+  delay(500);
+  digitalWrite(LED,LOW);
+  delay(500);
+  digitalWrite(LED,HIGH);
+}
+void standby(LED_OK,LED_CONEXION_WIFI,LED_MQTT){
+  digitalWrite(LED_OK,HIGH);
+  delay(300);
+  digitalWrite(LED_CONEXION_WIFI,HIGH);
+  digitalWrite(LED_OK,LOW);
+  delay(300);
+  digitalWrite(LED_MQTT,HIGH);
+  digitalWrite(LED_CONEXION_WIFI,LOW);
+  delay(300);
+  digitalWrite(LED_CONEXION_WIFI,HIGH);
+  digitalWrite(LED_MQTT,LOW);
+  delay(300);
+  digitalWrite(LED_OK,HIGH);
+  digitalWrite(LED_CONEXION_WIFI,LOW);
+}
