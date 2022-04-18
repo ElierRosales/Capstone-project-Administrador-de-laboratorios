@@ -137,9 +137,9 @@ try:
             parpadeo(LED_LECTURA)
             print("temperatura objeto:"+str(sensor.get_object_1()))
             parpadeo(LED_LECTURA)
-            client.publish('isur/temperatura_salon', payload = sensor.get_ambient(),qos=0,retain=False)
+            client.publish('isur/temperatura_salon', payload = round(sensor.get_ambient(),2),qos=0,retain=False)
             parpadeo(LED_MQTT)
-            client.publish('isur/temp',payload = sensor.get_object_1(),qos=0,retain=False)
+            client.publish('isur/temp',payload = round(sensor.get_object_1(),2),qos=0,retain=False)
             parpadeo(LED_MQTT)
             time.sleep(5)
         else:
