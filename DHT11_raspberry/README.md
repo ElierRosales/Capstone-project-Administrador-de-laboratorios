@@ -1,12 +1,11 @@
 # DHT11-Raspberry pi model B+
 ### Sensor de temperatura y humedad con raspberry
 ## INSTRUCCIONES
-
-<img src = "https://github.com/ElierRosales/Capstone-project-Administrador-de-laboratorios/blob/bf76aead35b301a82710ef379a9413ea0e7b735b/DHT11_raspberry/imagenes/dht11Raspberry.png" width="500">
-
 ### CONEXIÓN DEL SENSOR A RASPBERRY
 
-| Pin en el modulo NFC | Pin Raspberry |
+![ESQUEMA](imagenes/RASPBERRY+DHT11.png)
+
+| Pin en el DHT11 | Pin Raspberry |
 | -- | -- |
 | GND | 14 |
 | VCC | 4 |

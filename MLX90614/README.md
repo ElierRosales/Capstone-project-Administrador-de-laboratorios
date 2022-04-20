@@ -47,9 +47,11 @@ Una vez completados estos pasos solo queda armar el circuito y probar el program
 ## Diagrama del circuito sugerido.
 Las conexiones sugeridas y el diagrama esquemático utilizado es el siguiente: 
 
-![rasp-mlx90614](imagenes/diagrama.png)
+![rasp-mlx90614](imagenes/RASPBERRY+MLX90614.png)
 
 Ademas utilizar el mismo push button que se instalo en el [ESP32CAM+MAX30102](https://github.com/ElierRosales/Capstone-project-Administrador-de-laboratorios/tree/main/MAX30102#boton)
+
+![boton-rasp](../MAX30102/imagenes/BOTONESP32CAM-RASPBERRY.png)
 
 ## Conexiones
 |MLX90614|RaspberryPi 3 Model B+|

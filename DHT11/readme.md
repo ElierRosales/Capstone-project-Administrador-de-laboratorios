@@ -37,15 +37,15 @@ En caso de querer utilizar LED's, estos deberan ser conectados de la siguiente m
 
 Hay que recordar que la mayoria de conexiones a pines GPIO estan definidas por software, y que pueden ser modificadas desde el codigo fuente de acuerdo a tus necesidades.
 
-Para la conexion de la resistencia, tomemos el siguiente ejemplo:
-
-![ejemplo](imagenes/ejemplo.webp)
-
-Donde la resistencia de 10K se conecta al Pin 2 del DHT11 hacia 3.3v.
+Para la conexion de la resistencia, tomemos el siguiente ejemplo donde la resistencia de 10K se conecta al Pin 2 del DHT11 hacia 3.3v.
 
 | 10K Ohm|ESP32CAM|
 |--------|--------|
 |Pin 2 DHT11| 3.3v|
+
+Teniendo un circuito resultante tal que así:
+
+![esquema](imagenes/ESP32CAM+DHT11.png)
 
 ## Instalando librerias en Arduino IDE.
 Para manipular el sensor DHT11 instalaremos la siguiente libreria de AdaFruit:

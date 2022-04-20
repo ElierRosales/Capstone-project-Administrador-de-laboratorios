@@ -19,7 +19,7 @@ Nota: Esto podría cambiar dependiendo de tu modelo de Raspberry.
 
 #### Diagrama esquematico de conexiones 
 
-<img src = "https://github.com/ElierRosales/Capstone-project-Administrador-de-laboratorios/blob/7dad47193bc19ab89996144e0be6fb12bbd2f054/PN532/Imagenes%20PN532/PN532-PI.png" width="500">
+![esquematico](Imagenes%20PN532/RASPBERRY+PN532.png)
 
 ### INSTALACIÓN DE BIBLIOTECAS Y MODULOS QUE SE UTILIZAN
 * Abrimos la terminal y revisamos si tenemos y que versión de Python tenemos instalado con :

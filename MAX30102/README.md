@@ -10,6 +10,9 @@ Este programa realiza una medición de signos vitales (Pulso cardiaco/Oxigenaci�
 ## **Instrucciones** ##
 ## **CONEXIONES EN HARDWARE** ##
 ### Primero tenemos que asegurarnos de realizar las conexiones del circuito correctamente, como se muestra a continuación:
+
+![esquematico](imagenes/ESP32CAM+MAX30102.png)
+
   - 5V = 5V (3.3V también funciona)
   - GND = GND
   - SDA = GPIO15
@@ -19,7 +22,7 @@ Este programa realiza una medición de signos vitales (Pulso cardiaco/Oxigenaci�
   - LED AZUL = GPIO13
   - LED VERDE = GPIO2
   - Boton = GPIO4
-### RECORDEMOS QUE LOS COLORES SON INDIFERENTES.
+### RECORDEMOS QUE LOS COLORES DE LOS LED'S SON INDIFERENTES.
 Siguiendo el siguiente de mapeo de pines:
 - ESP32CAM/AI-THINKER![ESP32CAM](imagenes/esp32cam_pinout.png)
 - MAX30102
@@ -57,9 +60,7 @@ Para sincronizar la lectura de ambos sensores (MLX90614 y MAX30102), compartiran
 
 Para agregar el boton, consideraremos el siguiente ejemplo:
 
-![boton](imagenes/boton_esp32.jpg)
-
-Donde vamos a omitir la parte del LED y nos centraremos exclusivamente en el boton, el cable azul tendria que ir al GPIO4 de nuestra ESP32 y sobre esa misma linea, iria otro cable al GPIO22 de nuestra raspberry pi.
+![BOTON](imagenes/BOTONESP32CAM-RASPBERRY.png)
 
 Todo esto con el fin de que al presionar el boton se mande una señal a ambos dispositivos disparando el modo lectura de ambos sensores.
 ## LED's
