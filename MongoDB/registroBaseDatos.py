@@ -51,7 +51,8 @@ def existeCollecion(coleccion):
         print(f"Colección {coleccion} encontrada.\n")
         return True
     else:
-        print(f"Collecion {db} no existente.\n")
+        print(f"Collecion {coleccion} no existente.\n")
+        print("No hay usuarios registrados.")
         return False
         exit()
 def registro(uid,fecha):
@@ -129,7 +130,7 @@ try:
     client = mqtt.Client("Isur-PC")
     client.on_connect = on_connect
     client.on_message = on_message
-    client.connect("192.168.1.78", 1883, 60)
+    client.connect("192.168.1.72", 1883, 60)
     print("Acerca la tarjeta al lector.")
     client.loop_forever()
 except KeyboardInterrupt:

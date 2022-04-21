@@ -8,6 +8,7 @@ import time
 import paho.mqtt.client as mqtt #manejo de conexiones mqtt
 import json
 import datetime as dt
+import os
 
 miCliente = pymongo.MongoClient("mongodb://localhost:27017/")
 base_datos = miCliente["UAM"]
@@ -17,7 +18,7 @@ admin = base_datos["administrativos"]
 global broker_ip
 global port
 global cliente
-broker_ip = "192.168.1.78"
+broker_ip = "192.168.1.72"
 port = 1883
 cliente = 'Isur-PC'
 global separador
@@ -26,7 +27,7 @@ separador ="**************************************"
 def on_connect(client,userdata,flags,rc):
    print(f"Cliente:{cliente}")
    if rc==0:
-        print("Conexion exitosa")
+        print("Conexión exitosa")
         client.subscribe("isur/uid")
    else:
        print(f"Conexion con {broker_ip}:{port} fallida, codigo de error: {rc}")
@@ -53,6 +54,7 @@ def on_message(client,userdata,msg):
    existe = busqueda(uid,fecha)
    if existe ==False:
        print("Usuario no existente.")
+       os.system("python buscarUID.py")
    else:
        print("Usuario encontrado.")
        print("Datos enviados")
@@ -106,7 +108,7 @@ def busqueda(uid,fecha):
             print(f"{actualizar.modified_count} registros actualizados")
         print(separador)
         print("publicando...")
-        client.connect("192.168.1.78", 1883, 60)
+        client.connect("192.168.1.72", 1883, 60)
         client.publish("isur/usuario/nombre",payload=nombre,qos=0,retain=False)
         client.publish("isur/usuario/carrera",payload=carrera,qos=0,retain=False)
         client.publish("isur/usuario/matricula",payload=matricula,qos=0,retain=False)
@@ -143,6 +145,7 @@ def busqueda(uid,fecha):
         client.publish("isur/usuario/carrera",payload=carrera,qos=0,retain=False)
         client.publish("isur/usuario/matricula",payload=matricula,qos=0,retain=False)
         return True
+    return False
 def entradaSalida(fecha,fecha_entrada,fecha_salida):
     try:
         if fecha_entrada > fecha_salida:
@@ -155,6 +158,9 @@ def entradaSalida(fecha,fecha_entrada,fecha_salida):
         print("Comparacion no permitida.")
         print(f"Salio:{fecha}")
         return False
+print(separador)
+print("ACCESO")
+print(separador)
 try:
     client = mqtt.Client(cliente)
     client.on_connect = on_connect
@@ -163,6 +169,10 @@ try:
     print("Acerca la tarjeta al lector.")
     print(f"Conectando a {broker_ip}:{port}")
     client.loop_forever()
+except Exception as err:
+    print(err)
+    print(f"No es posible conectarse al Broker {broker_ip}:{port}")
+    print("Revisa tu conexión")
 except KeyboardInterrupt:
     print("\n")
     print("Finalizando programa.")
