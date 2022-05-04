@@ -40,6 +40,7 @@ def hayInternet():
 def standby(LED_ENCENDIDO,LED_MQTT,LED_STANDBY):
     modo = random.randint(0,3)
     if modo == 0:
+        time.sleep(0.5)
         gpio.output(LED_ENCENDIDO,False)
         gpio.output(LED_MQTT,False)
         gpio.output(LED_LECTURA,True)
@@ -53,6 +54,7 @@ def standby(LED_ENCENDIDO,LED_MQTT,LED_STANDBY):
         gpio.output(LED_LECTURA,True)
         time.sleep(1)
     if modo ==1:
+        time.sleep(0.5)
         gpio.output(LED_ENCENDIDO,True)
         gpio.output(LED_MQTT,False)
         gpio.output(LED_LECTURA,False)
@@ -66,6 +68,7 @@ def standby(LED_ENCENDIDO,LED_MQTT,LED_STANDBY):
         gpio.output(LED_LECTURA,True)
         time.sleep(1)
     if modo ==2:
+        time.sleep(0.5)
         gpio.output(LED_ENCENDIDO,True)
         gpio.output(LED_MQTT,False)
         gpio.output(LED_LECTURA,True)
@@ -79,6 +82,7 @@ def standby(LED_ENCENDIDO,LED_MQTT,LED_STANDBY):
         gpio.output(LED_LECTURA,True)
         time.sleep(1)
     if modo ==3:
+        time.sleep(0.5)
         gpio.output(LED_ENCENDIDO,False)
         gpio.output(LED_MQTT,True)
         gpio.output(LED_LECTURA,True)
@@ -132,16 +136,37 @@ try:
     while(1):
         if(gpio.input(pin_button)==gpio.HIGH):
             print("Iniciando lectura:\n")
-            parpadeo(LED_LECTURA)
+            lecturas = []
+            ambiente = []
+            for i in range(3):
+                print(f"Lectura {i}\n")
+                parpadeo(LED_LECTURA)
+                ambiente.append(sensor.get_ambient())
+                parpadeo(LED_LECTURA)
+                lecturas.append(sensor.get_object_1())
+                parpadeo(LED_LECTURA)
+            promedio = sum(lecturas)/3
+            print(f"Temperatura corporal:{promedio}°C")
+            promedio_ambiente = sum(ambiente)/3
+            print(f"Temperatura ambiente:{promedio_ambiente}°C")
+            
+            """parpadeo(LED_LECTURA)
             print("Temperatura ambiente:"+str(sensor.get_ambient()))
             parpadeo(LED_LECTURA)
             print("temperatura objeto:"+str(sensor.get_object_1()))
-            parpadeo(LED_LECTURA)
-            client.publish('isur/temperatura_salon', payload = round(sensor.get_ambient(),2),qos=0,retain=False)
-            parpadeo(LED_MQTT)
-            client.publish('isur/temp',payload = round(sensor.get_object_1(),2),qos=0,retain=False)
-            parpadeo(LED_MQTT)
-            time.sleep(5)
+            parpadeo(LED_LECTURA)"""
+            
+            try:
+                client.publish('isur/temperatura_salon', payload = round(sensor.get_ambient(),2),qos=0,retain=False)
+                parpadeo(LED_MQTT)
+                print("Mensaje publicado")
+                client.publish('isur/temp',payload = round(sensor.get_object_1(),2),qos=0,retain=False)
+                parpadeo(LED_MQTT)
+                print("Mensaje publicado")
+                time.sleep(5)
+            except Exception:
+                print(Exception)
+                print("Error MQTT")
         else:
             mostrarHora()
             print("Presione el boton durante 3 segundos para iniciar la lectura.")
