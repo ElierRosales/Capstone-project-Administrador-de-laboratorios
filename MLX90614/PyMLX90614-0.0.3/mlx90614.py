@@ -128,7 +128,7 @@ try:
     gpio.output(LED_ENCENDIDO,True)
     client = mqtt.Client()
     client.on_connect = on_connect
-    client.connect("192.168.1.78", 1883, 60)
+    client.connect("192.168.1.69", 1883, 60)
     while(1):
         if(gpio.input(pin_button)==gpio.HIGH):
             print("Iniciando lectura:\n")
@@ -149,6 +149,13 @@ try:
 except KeyboardInterrupt:
     print("Finalizando programa.")
     print(f"Apagando leds GPIO{LED_MQTT},GPIO{LED_ENCENDIDO},GPIO{LED_LECTURA}")
+    gpio.output(LED_ENCENDIDO,False)
+    gpio.output(LED_MQTT,False)
+    gpio.output(LED_LECTURA,False)
+    bus.close()
+except OSError:
+    print("Sensor no detectado\n")
+    print("Revisar conexiones al sensor y/o interfaz i2c en la raspberry")
     gpio.output(LED_ENCENDIDO,False)
     gpio.output(LED_MQTT,False)
     gpio.output(LED_LECTURA,False)
