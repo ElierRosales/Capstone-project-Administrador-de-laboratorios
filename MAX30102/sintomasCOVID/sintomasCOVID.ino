@@ -28,13 +28,13 @@ MAX30105 particleSensor;
 /***************************************************************************************
 DATOS DEL WIFI
 ****************************************************************************************/
-const char* ssid = "INFINITUM3033_2.4";  // Aquí debes poner el nombre de tu red
-const char* password = "yYYmteq554";  // Aquí debes poner la contraseña de tu red
+const char* ssid = "INFINITUM82A5_2.4";  // Aquí debes poner el nombre de tu red
+const char* password = "buYATW7lG5";  // Aquí debes poner la contraseña de tu red
 /***************************************************************************************
 DATOS DEL BROKER MQTT
 ****************************************************************************************/
-const char* mqtt_server = "187.200.114.169"; // Si estas en una red local, coloca la IP asignada, en caso contrario, coloca la IP publica
-IPAddress server(187,200,218,12);
+const char* mqtt_server = "192.168.1.69"; // Si estas en una red local, coloca la IP asignada, en caso contrario, coloca la IP publica
+IPAddress server(192,168,1,69);
 /***************************************************************************************
 OBJETOS
 ****************************************************************************************/
@@ -111,6 +111,7 @@ void setup()
   if (!particleSensor.begin(Wire, I2C_SPEED_FAST)) //Use default I2C port, 400kHz speed
   {
     Serial.println(F("MAX3010X NO ENCONTRADO. POR FAVOR REVISE EL CABLEADO O LA ALIMENTACIÓN. \n"));
+    conectando(LED_OK);
     while (1);
   }
 }
@@ -175,14 +176,16 @@ void loop()
       redBuffer[i] = particleSensor.getRed();
       irBuffer[i] = particleSensor.getIR();
       particleSensor.nextSample(); //We're finished with this sample so move to next sample
-      Serial.print(F("red="));
-      Serial.print(redBuffer[i], DEC);
-      Serial.print(F(", ir="));
-      Serial.print(irBuffer[i], DEC);
+      //Serial.print(F("red="));
+      //Serial.print(redBuffer[i], DEC);
+      //Serial.print(F(", ir="));
+      //Serial.print(irBuffer[i], DEC);
+      Serial.println("Tomando valores...\n");
     }
     //After gathering 25 new samples recalculate HR and SP02
     maxim_heart_rate_and_oxygen_saturation(irBuffer, bufferLength, redBuffer, &spo2, &validSPO2, &heartRate, &validHeartRate);
     //send samples and calculation result to terminal program through UART
+      Serial.println("Valores encontrados:\n");
       Serial.print(F(", PULSO CARDIACO=\n"));
       Serial.print(heartRate, DEC);
       char pulso[10];
@@ -195,24 +198,24 @@ void loop()
         Serial.print("Error:");
         Serial.print(client.state()); // Muestra el codigo de error
         digitalWrite(LED_OK,HIGH);
-        delay(1000);
+        delay(300);
         digitalWrite(LED_OK,LOW);
-        delay(1000);
+        delay(300);
         digitalWrite(LED_OK,HIGH);
-        delay(1000);
+        delay(300);
         digitalWrite(LED_OK,LOW);
-        delay(2000);
+        delay(1000);
       }
       else{
         Serial.print("Mensaje publicado\n");
         digitalWrite(LED_MQTT,HIGH);
-        delay(1000);
+        delay(300);
         digitalWrite(LED_MQTT,LOW);
-        delay(1000);
+        delay(300);
         digitalWrite(LED_MQTT,HIGH);
-        delay(1000);
+        delay(300);
         digitalWrite(LED_MQTT,LOW);
-        delay(2000);
+        delay(300);
       }
       Serial.print(F(", PULSO CARDIACO VALIDO=\n"));
       Serial.print(validHeartRate, DEC);
@@ -228,24 +231,24 @@ void loop()
         Serial.print("Error:");
         Serial.print(client.state()); // Muestra el codigo de error
         digitalWrite(LED_OK,HIGH);
-        delay(1000);
+        delay(300);
         digitalWrite(LED_OK,LOW);
-        delay(1000);
+        delay(300);
         digitalWrite(LED_OK,HIGH);
-        delay(1000);
+        delay(300);
         digitalWrite(LED_OK,LOW);
-        delay(2000);
+        delay(1000);
       }
       else{
         Serial.print("Mensaje publicado\n");
         digitalWrite(LED_MQTT,HIGH);
-        delay(1000);
+        delay(300);
         digitalWrite(LED_MQTT,LOW);
-        delay(1000);
+        delay(300);
         digitalWrite(LED_MQTT,HIGH);
-        delay(1000);
+        delay(300);
         digitalWrite(LED_MQTT,LOW);
-        delay(2000);
+        delay(300);
       }
       Serial.print(F(", OXIGENO EN SANGRE VALIDO=\n"));
       Serial.println(validSPO2, DEC);
@@ -254,7 +257,7 @@ void loop()
   else{
     Serial.println("MODO STANDBY");
     Serial.println("Presione el boton por 3 segundos para tomar las medidas");
-    standby(LED_OK,LED_CONEXION_WIFI,LED_MQTT);
+    standby();
   }
 }
 // Función para reconectarse
@@ -277,7 +280,7 @@ void reconnect() {
     }// fin del else
   }// fin del bucle while (!client.connected())
 }// fin de void reconnect()
-void conectando(LED){
+void conectando(int LED){
   digitalWrite(LED,HIGH);
   delay(500);
   digitalWrite(LED,LOW);
@@ -292,7 +295,7 @@ void conectando(LED){
   delay(500);
   digitalWrite(LED,HIGH);
 }
-void standby(LED_OK,LED_CONEXION_WIFI,LED_MQTT){
+void standby(){
   digitalWrite(LED_OK,HIGH);
   delay(300);
   digitalWrite(LED_CONEXION_WIFI,HIGH);
